@@ -45,7 +45,7 @@
 .eh-auth__chapters small { font-size: 9px; letter-spacing: .08em; color: #bfaa7b; }
 .eh-auth__chapters i { height: 1px; background: #c4cfe42b; width: 27px; }
 .eh-auth__portal { width: 100%; max-width: 480px; justify-self: end; min-width: 0; }
-.eh-auth__card { position: relative; padding: 30px 38px 0; border: 1px solid #b7c7e146; border-top-color: #deca9a72; border-radius: 24px; background: linear-gradient(137deg, rgb(31 45 68 / 52%) 0%, rgb(12 22 40 / 61%) 42%, rgb(8 15 30 / 68%) 76%, rgb(31 34 49 / 48%) 100%); box-shadow: 0 28px 90px -44px #000c, inset 0 1px 0 #fff12; backdrop-filter: blur(30px) saturate(132%); -webkit-backdrop-filter: blur(30px) saturate(132%); }
+.eh-auth__card { position: relative; padding: 30px 38px 0; border: 1px solid #b7c7e146; border-top-color: #deca9a72; border-radius: 24px; background: linear-gradient(137deg, rgb(42 57 79 / 28%) 0%, rgb(12 22 40 / 32%) 42%, rgb(8 15 30 / 38%) 76%, rgb(44 47 62 / 24%) 100%); box-shadow: 0 28px 90px -44px #000c, inset 0 1px 0 #fff12; backdrop-filter: blur(52px) saturate(145%); -webkit-backdrop-filter: blur(52px) saturate(145%); }
 .eh-auth__card::before { content: ''; position: absolute; top: -1px; left: 25%; right: 25%; height: 1px; background: linear-gradient(90deg, transparent, #e7d7b5aa, transparent); }
 .eh-auth__card-top { display: flex; align-items: center; justify-content: space-between; color: #afbdd0; font-size: 9px; font-weight: 500; letter-spacing: .14em; margin-bottom: 24px; }
 .eh-auth__step-mark { color: #e2cd9f; font-size: 11px; letter-spacing: .04em; }
