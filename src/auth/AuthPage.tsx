@@ -236,14 +236,14 @@ export function AuthPage() {
     <AuthBackdrop />
     <a className="eh-auth__skip" href="#auth-content">{t("Перейти к форме")}</a>
     <header className="eh-auth__header">
-      <a className="eh-auth__brand" href="https://app.elevenhouse.ai/" aria-label={t("ElevenHouse — на главную")}><img src={wordmark} width="1131" height="682" alt="ElevenHouse" /></a>
+      <a className="eh-auth__brand" href="https://elevenhouse.ai/" aria-label={t("ElevenHouse — на главную")}><img src={wordmark} width="1131" height="682" alt="ElevenHouse" /></a>
       <div className="eh-auth__header-actions">
         <div className="eh-auth__languages" role="group" aria-label={t('Язык интерфейса')}>
           <button type="button" lang="ru" aria-label="Русский" aria-pressed={locale === 'ru'} onClick={() => setLocale('ru')}>RU</button>
           <span aria-hidden="true">/</span>
           <button type="button" lang="en" aria-label="English" aria-pressed={locale === 'en'} onClick={() => setLocale('en')}>EN</button>
         </div>
-        <a className="eh-auth__home" href="https://app.elevenhouse.ai/"><Icon name="back" size={16} /><span>{t("На главную")}</span></a>
+        <a className="eh-auth__home" href="https://elevenhouse.ai/"><Icon name="back" size={16} /><span>{t("На главную")}</span></a>
       </div>
     </header>
 
@@ -294,7 +294,7 @@ export function AuthPage() {
               <button className="eh-auth__text-button eh-auth__delivery" type="button" onClick={() => setNotice({ title: 'Не получается найти код?', text: channel === 'email' ? 'Проверьте папку «Спам» и адрес выше. Письмо может идти несколько минут. Можно отправить новый код или изменить контакт.' : 'Проверьте номер и приём SMS. Сообщение может идти несколько минут. Можно отправить новый код или изменить контакт.', tone: 'info' })}>{t("Код не приходит?")}</button>
             </form>}
 
-            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}<span aria-hidden="true">↗</span></button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.")}</p><a className="eh-auth__text-button" href="https://app.elevenhouse.ai/" target="_blank" rel="noreferrer">{t("Открыть ElevenHouse ")}<span aria-hidden="true">↗</span></a></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
+            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}<span aria-hidden="true">↗</span></button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.")}</p><a className="eh-auth__text-button" href="https://elevenhouse.ai/" target="_blank" rel="noreferrer">{t("Открыть ElevenHouse ")}<span aria-hidden="true">↗</span></a></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
           </div>
           {step !== 'help' && <div className="eh-auth__card-bottom"><span>{step === 'code' ? t('Не удаётся войти?') : isRegister ? t('Уже есть своё пространство?') : t('Ещё нет кабинета?')}</span><button type="button" onClick={() => step === 'code' ? openHelp() : switchMode(isRegister ? 'login' : 'register')}>{step === 'code' ? t('Помощь') : isRegister ? t('Войти') : t('Создать')}</button></div>}
         </div>
