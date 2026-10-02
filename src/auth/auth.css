@@ -1,5 +1,5 @@
 /* Standalone auth entry only. None of these rules are imported by the landing.
-   Palette / fonts: approved landing. Optical aurora / panel depth: supplied reference. */
+   Palette / fonts: approved landing. Restrained optical atmosphere / panel depth: supplied reference. */
 @font-face { font-family: 'Auth Manrope'; src: url('../assets/fonts/manrope/manrope-cyrillic.woff2') format('woff2'); font-style: normal; font-weight: 200 800; font-display: swap; unicode-range: U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116; }
 @font-face { font-family: 'Auth Manrope'; src: url('../assets/fonts/manrope/manrope-latin.woff2') format('woff2'); font-style: normal; font-weight: 200 800; font-display: swap; }
 @font-face { font-family: 'Auth Vetrino'; src: url('../assets/fonts/vetrino/Vetrino.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
@@ -16,8 +16,8 @@
 .eh-auth :is(p,h1,h2,h3) { margin: 0; }
 .eh-auth svg { flex-shrink: 0; }
 .eh-auth__atmosphere { position: absolute; z-index: -1; inset: 0; overflow: hidden; pointer-events: none; }
-.eh-auth__aurora { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .94; }
-.eh-auth__atmosphere-shade { position: absolute; inset: 0; background: linear-gradient(180deg, #03091580 0%, transparent 25%, transparent 76%, #03091570 100%), linear-gradient(90deg, #03091530, transparent 62%); }
+.eh-auth__aurora { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 1; }
+.eh-auth__atmosphere-shade { position: absolute; inset: 0; background: linear-gradient(90deg, #050b1733, transparent 62%), linear-gradient(180deg, #050b1720, transparent 35%, #050b1733); }
 .eh-auth__header { width: 100%; max-width: 1600px; padding: 34px 5%; margin-inline: auto; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .eh-auth__brand { display: block; width: 86px; line-height: 0; }
 .eh-auth__brand img { width: 100%; height: auto; }
@@ -191,8 +191,8 @@
   .eh-auth__contact-head > button { font-size: 12px; min-height: 36px; padding-bottom: 8px; }
   .eh-auth__footer { width: 88%; padding: 12px 0 66px; margin-top: auto; font-size: 9px; }
   .eh-auth__footer > span:nth-child(2) { display: none; }
-  .eh-auth__aurora { object-position: 69% center; opacity: .85; }
-  .eh-auth__atmosphere-shade { background: linear-gradient(180deg, #030915bb 0%, #03091566 22%, transparent 45%, #03091555 100%); }
+  .eh-auth__aurora { width: 160%; max-width: none; left: -60%; opacity: .75; }
+  .eh-auth__atmosphere-shade { background: linear-gradient(180deg, #050b1740, transparent 45%, #050b1730); }
   .eh-auth__home { font-size: 11px; }
   .eh-auth[data-screen='help'] .eh-auth__editorial { display: none; }
 }
