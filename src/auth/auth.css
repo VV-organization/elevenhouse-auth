@@ -46,8 +46,6 @@
 .eh-auth__card { position: relative; padding: 30px 38px 0; border: 1px solid #b7c7e146; border-top-color: #deca9a72; border-radius: 24px; background: linear-gradient(137deg, rgb(42 57 79 / 28%) 0%, rgb(12 22 40 / 32%) 42%, rgb(8 15 30 / 38%) 76%, rgb(44 47 62 / 24%) 100%); box-shadow: 0 28px 90px -44px #000c, inset 0 1px 0 #fff12; backdrop-filter: blur(52px) saturate(145%); -webkit-backdrop-filter: blur(52px) saturate(145%); }
 .eh-auth__card::before { content: ''; position: absolute; top: -1px; left: 25%; right: 25%; height: 1px; background: linear-gradient(90deg, transparent, #e7d7b5aa, transparent); }
 .eh-auth__card-top { display: flex; align-items: center; justify-content: space-between; color: #afbdd0; font-size: 9px; font-weight: 500; letter-spacing: .14em; margin-bottom: 24px; }
-.eh-auth__step-mark { color: #e2cd9f; font-size: 11px; letter-spacing: .04em; }
-.eh-auth__step-mark > span { color: #78889f; margin-left: 5px; }
 .eh-auth__modes { display: flex; gap: 28px; margin-bottom: 28px; border-bottom: 1px solid var(--line); }
 .eh-auth__modes button { border: 0; background: transparent; padding: 0 0 13px; min-height: 38px; font-size: 12px; color: #9aa7bc; position: relative; }
 .eh-auth__modes button[aria-pressed='true'] { color: #f3e6c6; }

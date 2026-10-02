@@ -213,9 +213,7 @@ export function AuthPage() {
       code: enteredCode,
       displayName: mode === 'register' ? pendingIdentity.displayName : undefined,
     }, signal), () => {
-      const returnTo = new URLSearchParams(window.location.search).get('returnTo')
-      const destination = returnTo?.startsWith('/') && !returnTo.startsWith('//') ? returnTo : '/dashboard'
-      window.location.assign(destination)
+      window.location.assign('/dashboard')
     })
   }
 
@@ -254,7 +252,7 @@ export function AuthPage() {
 
       <section id="auth-content" className="eh-auth__portal" aria-label={t("Вход и регистрация")}>
         <div className="eh-auth__card">
-          <div className="eh-auth__card-top"><span>{t("ЛИЧНЫЙ КАБИНЕТ")}</span><span className="eh-auth__step-mark">{step === 'code' ? '02' : '01'} <span>/ 03</span></span></div>
+          <div className="eh-auth__card-top"><span>{t("ЛИЧНЫЙ КАБИНЕТ")}</span></div>
           {step === 'details' && <div className="eh-auth__modes" aria-label={t("Выберите действие")}>
             <button type="button" aria-pressed={isRegister} onClick={() => switchMode('register')}>{t("Регистрация")}</button>
             <button type="button" aria-pressed={!isRegister} onClick={() => switchMode('login')}>{t("Вход")}</button>
@@ -291,7 +289,7 @@ export function AuthPage() {
               <button className="eh-auth__text-button eh-auth__delivery" type="button" onClick={() => setNotice({ title: 'Не получается найти код?', text: channel === 'email' ? 'Проверьте папку «Спам» и адрес выше. Письмо может идти несколько минут. Можно отправить новый код или изменить контакт.' : 'Проверьте номер и приём SMS. Сообщение может идти несколько минут. Можно отправить новый код или изменить контакт.', tone: 'info' })}>{t("Код не приходит?")}</button>
             </form>}
 
-            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}</button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.")}</p><a className="eh-auth__text-button" href="https://elevenhouse.ai/" target="_blank" rel="noreferrer">{t("Открыть ElevenHouse ")}</a></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
+            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}</button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку ElevenHouse.")}</p></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
           </div>
           {step !== 'help' && <div className="eh-auth__card-bottom"><span>{step === 'code' ? t('Не удаётся войти?') : isRegister ? t('Уже есть своё пространство?') : t('Ещё нет кабинета?')}</span><button type="button" onClick={() => step === 'code' ? openHelp() : switchMode(isRegister ? 'login' : 'register')}>{step === 'code' ? t('Помощь') : isRegister ? t('Войти') : t('Создать')}</button></div>}
         </div>

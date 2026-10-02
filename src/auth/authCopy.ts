@@ -109,7 +109,7 @@ export const englishCopy: Record<string, string> = {
   'Войдите через почту или телефон, уже привязанные к вашему кабинету.': 'Use an email address or phone number already linked to your workspace.',
   'Выбрать другой способ': 'Choose another method',
   'Нет доступа к почте и телефону?': 'Can’t access your email or phone?',
-  'Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.': 'Recover your email through your email provider, or your number through your mobile operator. If that is not possible, contact support through the live application.',
+  'Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку ElevenHouse.': 'Recover your email through your email provider, or your number through your mobile operator. If that is not possible, contact ElevenHouse support.',
   'Открыть ElevenHouse': 'Open ElevenHouse',
   'Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.': 'Never share your verification code, even with someone claiming to be support.',
   'Не удаётся войти?': 'Having trouble signing in?',
