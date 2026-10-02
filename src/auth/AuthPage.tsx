@@ -241,7 +241,6 @@ export function AuthPage() {
           <span aria-hidden="true">/</span>
           <button type="button" lang="en" aria-label="English" aria-pressed={locale === 'en'} onClick={() => setLocale('en')}>EN</button>
         </div>
-        <a className="eh-auth__home" href="https://elevenhouse.ai/"><span>{t("На главную")}</span></a>
       </div>
     </header>
 
