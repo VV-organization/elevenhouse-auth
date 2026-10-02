@@ -46,7 +46,7 @@
 .eh-auth__chapters small { font-size: 9px; letter-spacing: .08em; color: #bfaa7b; }
 .eh-auth__chapters i { height: 1px; background: #c4cfe42b; width: 27px; }
 .eh-auth__portal { width: 100%; max-width: 480px; justify-self: end; min-width: 0; }
-.eh-auth__card { position: relative; padding: 30px 38px 0; border: 1px solid #b7c7e132; border-top-color: #deca9a61; border-radius: 24px; background: linear-gradient(137deg, #2732494d 0%, #0e172acc 38%, #0b1326e8 75%, #29273859 100%); box-shadow: 0 28px 90px -44px #000c, inset 0 1px 0 #fff07; backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px); }
+.eh-auth__card { position: relative; padding: 30px 38px 0; border: 1px solid #b7c7e146; border-top-color: #deca9a72; border-radius: 24px; background: linear-gradient(137deg, rgb(31 45 68 / 52%) 0%, rgb(12 22 40 / 61%) 42%, rgb(8 15 30 / 68%) 76%, rgb(31 34 49 / 48%) 100%); box-shadow: 0 28px 90px -44px #000c, inset 0 1px 0 #fff12; backdrop-filter: blur(30px) saturate(132%); -webkit-backdrop-filter: blur(30px) saturate(132%); }
 .eh-auth__card::before { content: ''; position: absolute; top: -1px; left: 25%; right: 25%; height: 1px; background: linear-gradient(90deg, transparent, #e7d7b5aa, transparent); }
 .eh-auth__card-top { display: flex; align-items: center; justify-content: space-between; color: #afbdd0; font-size: 9px; font-weight: 500; letter-spacing: .14em; margin-bottom: 24px; }
 .eh-auth__step-mark { color: #e2cd9f; font-size: 11px; letter-spacing: .04em; }
@@ -183,7 +183,7 @@
   .eh-auth__editorial h1 { font-size: min(12.5cqw, 48px); line-height: 1.1; margin-left: 0; }
   .eh-auth__intro, .eh-auth__signature, .eh-auth__chapters { display: none; }
   .eh-auth__portal { justify-self: stretch; max-width: none; }
-  .eh-auth__card { padding: 25px 28px 0; background: linear-gradient(130deg, #24314a85, #0c1428e8 70%, #2a2b345c); }
+  .eh-auth__card { padding: 25px 28px 0; background: linear-gradient(130deg, rgb(31 45 68 / 56%), rgb(12 20 39 / 66%) 70%, rgb(34 35 48 / 48%)); }
   .eh-auth__screen > h2 { font-size: 34px; }
   .eh-auth__description { font-size: 13px; }
   .eh-auth__field > label, .eh-auth__contact-head > label { font-size: 12px; }
@@ -221,6 +221,10 @@
   .eh-auth__card { background: #0b1426; border-color: #c0ccde; }
   .eh-auth { --muted: #c1ccdc; --subtle: #b0bdd1; }
   .eh-auth input { border-color: #b6c5dd; }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .eh-auth__card { background: #0b1426; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 
 /* Keep the complete auth flow in the viewport on common short screens. */
