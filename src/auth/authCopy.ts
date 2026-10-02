@@ -52,7 +52,6 @@ export const englishCopy: Record<string, string> = {
   'Перейти к форме': 'Skip to the form',
   'ElevenHouse — на главную': 'ElevenHouse — home',
   'На главную': 'Home',
-  'ПРОСТРАНСТВО ВАШЕЙ ПРАКТИКИ': 'A SPACE FOR YOUR PRACTICE',
   'Всё начинается': 'It all starts',
   'с': 'with',
   'вас': 'you',

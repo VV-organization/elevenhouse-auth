@@ -249,7 +249,6 @@ export function AuthPage() {
 
     <main className="eh-auth__layout">
       <section className="eh-auth__editorial" aria-labelledby="auth-brand-title">
-        <p className="eh-auth__eyebrow"><span /> {t(" ПРОСТРАНСТВО ВАШЕЙ ПРАКТИКИ")}</p>
         <h1 id="auth-brand-title"><span>{t("Всё начинается")}</span><span>{t("с ")}<em>{t("вас")}</em></span></h1>
         <p className="eh-auth__intro"><span>{t("Ваши знания становятся системой.")}</span><span>{t("А у вас появляется пространство для самого важного.")}</span></p>
         <div className="eh-auth__signature" aria-hidden="true"><span className="eh-auth__signature-line" /><img src={monogram} width="42" height="42" alt="" /><span>{t("Место, где ваша")}<br />{t("практика обретает форму.")}</span></div>
