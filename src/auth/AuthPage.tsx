@@ -20,10 +20,8 @@ const errorNotices = {
   suspended: { title: 'Доступ к кабинету ограничен', text: 'Откройте помощь, чтобы узнать, как восстановить доступ.', action: 'help' },
 } satisfies Record<string, Notice>
 
-function Icon({ name, size = 20 }: { name: 'arrow' | 'back' | 'mail' | 'phone' | 'info' | 'lock'; size?: number }) {
+function Icon({ name, size = 20 }: { name: 'mail' | 'phone' | 'info' | 'lock'; size?: number }) {
   const paths: Record<typeof name, ReactNode> = {
-    arrow: <><path d="M4 12h15M13 6l6 6-6 6" /></>,
-    back: <><path d="M20 12H5m6-6-6 6 6 6" /></>,
     mail: <><rect x="3" y="5" width="18" height="14" rx="3" /><path d="m4 7 8 6 8-6" /></>,
     phone: <><rect x="6" y="2" width="12" height="20" rx="3" /><path d="M10 18h4" /></>,
     info: <><circle cx="12" cy="12" r="9" /><path d="M12 11v6m0-10v1" /></>,
@@ -243,7 +241,7 @@ export function AuthPage() {
           <span aria-hidden="true">/</span>
           <button type="button" lang="en" aria-label="English" aria-pressed={locale === 'en'} onClick={() => setLocale('en')}>EN</button>
         </div>
-        <a className="eh-auth__home" href="https://elevenhouse.ai/"><Icon name="back" size={16} /><span>{t("На главную")}</span></a>
+        <a className="eh-auth__home" href="https://elevenhouse.ai/"><span>{t("На главную")}</span></a>
       </div>
     </header>
 
@@ -262,39 +260,39 @@ export function AuthPage() {
             <button type="button" aria-pressed={isRegister} onClick={() => switchMode('register')}>{t("Регистрация")}</button>
             <button type="button" aria-pressed={!isRegister} onClick={() => switchMode('login')}>{t("Вход")}</button>
           </div>}
-          {(step === 'code' || step === 'help') && <button type="button" className="eh-auth__back" onClick={changeContact}><Icon name="back" size={17} />{step === 'code' ? t('Изменить контакт') : t('Вернуться ко входу')}</button>}
+          {(step === 'code' || step === 'help') && <button type="button" className="eh-auth__back" onClick={changeContact}>{step === 'code' ? t('Изменить контакт') : t('Вернуться ко входу')}</button>}
 
           <div className="eh-auth__screen" key={`${step}-${mode}`}>
             <h2 ref={heading} tabIndex={-1}>{t(actualTitle)}</h2>
             <p className="eh-auth__description">{step === 'details' ? isRegister ? t('Для начала — только имя и контакт.\nБесплатно, без карты.') : t('Клиенты, планы и ваши идеи уже ждут.\nВойдите по коду — пароль не нужен.') : step === 'code' ? <>{t("Код из ")}{CODE_LENGTH} {t(" цифр отправлен ")}{channel === 'email' ? t('на почту') : t('на номер')}<br /><strong className="eh-auth__recipient">{maskedRecipient}</strong></> : t('Даже если привычный способ входа больше не работает.')}</p>
 
-            {notice && <div className={`eh-auth__notice ${notice.tone === 'info' ? 'eh-auth__notice--info' : ''}`} role={notice.tone === 'info' ? 'status' : 'alert'}><Icon name="info" size={18} /><div><strong>{t(notice.title)}</strong><p>{t(notice.text)}</p>{notice.action && <button type="button" onClick={() => notice.action === 'help' ? openHelp() : switchMode(notice.action === 'login' ? 'login' : 'register')}>{notice.action === 'login' ? t('Перейти ко входу') : notice.action === 'register' ? t('Создать кабинет') : t('Помощь со входом')} <span aria-hidden="true">↗</span></button>}</div></div>}
+            {notice && <div className={`eh-auth__notice ${notice.tone === 'info' ? 'eh-auth__notice--info' : ''}`} role={notice.tone === 'info' ? 'status' : 'alert'}><Icon name="info" size={18} /><div><strong>{t(notice.title)}</strong><p>{t(notice.text)}</p>{notice.action && <button type="button" onClick={() => notice.action === 'help' ? openHelp() : switchMode(notice.action === 'login' ? 'login' : 'register')}>{notice.action === 'login' ? t('Перейти ко входу') : notice.action === 'register' ? t('Создать кабинет') : t('Помощь со входом')} </button>}</div></div>}
 
             {step === 'details' && <form ref={form} onSubmit={sendCode} noValidate aria-busy={!!busy}>
               {isRegister && <div className="eh-auth__field"><label htmlFor="auth-name">{t("Как к вам обращаться")}</label><input id="auth-name" name="name" autoComplete="given-name" placeholder={t("Ваше имя")} value={name} maxLength={200} aria-invalid={!!errors.name} aria-describedby={errors.name ? 'auth-name-error' : undefined} disabled={!!busy} onChange={(event) => { setName(event.target.value); setErrors((value) => ({ ...value, name: undefined })) }} />{errors.name && <p id="auth-name-error" className="eh-auth__field-error" role="alert">{t(errors.name)}</p>}</div>}
-              <div className="eh-auth__contact-head"><label htmlFor="auth-contact">{channel === 'email' ? t('Электронная почта') : t('Номер телефона')}</label><button type="button" disabled={!!busy} onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); setErrors({}); setNotice(null) }}>{channel === 'email' ? t('По телефону') : t('По почте')} <span aria-hidden="true">↗</span></button></div>
+              <div className="eh-auth__contact-head"><label htmlFor="auth-contact">{channel === 'email' ? t('Электронная почта') : t('Номер телефона')}</label><button type="button" disabled={!!busy} onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); setErrors({}); setNotice(null) }}>{channel === 'email' ? t('По телефону') : t('По почте')} </button></div>
               <div className="eh-auth__field eh-auth__field--contact">
                 <div className={`eh-auth__contact-input ${channel === 'phone' ? 'eh-auth__contact-input--phone' : ''}`} data-invalid={!!errors.contact}>
-                  {channel === 'phone' && <div className="eh-auth__country"><span aria-hidden="true"><span className="eh-auth__country-code">{selectedCountry.id} {selectedCountry.prefix}</span><span className="eh-auth__chevron" /></span><select aria-label={t("Код страны")} value={country} disabled={!!busy} onChange={(event) => { setCountry(event.target.value); setErrors({}) }}>{countries.map((item) => <option key={item.id} value={item.id}>{t(item.name)} ({item.prefix})</option>)}</select></div>}
+                  {channel === 'phone' && <div className="eh-auth__country"><span className="eh-auth__country-code">{selectedCountry.id} {selectedCountry.prefix}</span><select aria-label={t("Код страны")} value={country} disabled={!!busy} onChange={(event) => { setCountry(event.target.value); setErrors({}) }}>{countries.map((item) => <option key={item.id} value={item.id}>{t(item.name)} ({item.prefix})</option>)}</select></div>}
                   <input key={channel} id="auth-contact" name={channel} type={channel === 'email' ? 'email' : 'tel'} inputMode={channel === 'email' ? 'email' : 'tel'} autoComplete={channel === 'email' ? 'email' : 'tel-national'} autoCapitalize="none" spellCheck={false} placeholder={channel === 'email' ? 'you@example.com' : '999 123-45-67'} value={contact} maxLength={channel === 'email' ? 254 : 22} disabled={!!busy} aria-invalid={!!errors.contact} aria-describedby={errors.contact ? 'auth-contact-error' : 'auth-contact-hint'} onChange={(event) => { channel === 'email' ? setEmail(event.target.value) : setPhone(event.target.value); setErrors((value) => ({ ...value, contact: undefined })); setNotice(null) }} />
                   {channel === 'email' && <Icon name="mail" size={19} />}
                 </div>
                 {errors.contact && <p id="auth-contact-error" className="eh-auth__field-error" role="alert">{t(errors.contact)}</p>}
                 <p id="auth-contact-hint" className="eh-auth__hint">{t("Пришлём код ")}{channel === 'email' ? t('на почту') : t('в SMS')}{t(". Запоминать пароль не нужно.")}</p>
               </div>
-              <button type="submit" className="eh-auth__primary" disabled={!!busy}>{busy ? <><span className="eh-auth__spinner" />{t("Отправляем код")}</> : <>{t(isRegister ? 'Создать своё пространство' : 'Войти по коду')}<Icon name="arrow" /></>}</button>
+              <button type="submit" className="eh-auth__primary" disabled={!!busy}>{busy ? <><span className="eh-auth__spinner" />{t("Отправляем код")}</> : <>{t(isRegister ? 'Создать своё пространство' : 'Войти по коду')}</>}</button>
               <div className="eh-auth__form-note"><Icon name="lock" size={14} /><span>{t("Только вы получаете доступ к кабинету")}</span></div>
             </form>}
 
             {step === 'code' && <form onSubmit={verify} noValidate aria-busy={!!busy}>
               <div className="eh-auth__field"><label htmlFor="auth-code">{t("Код подтверждения")}</label><input id="auth-code" className="eh-auth__code" name="code" autoComplete="one-time-code" inputMode="numeric" type="text" placeholder="000 000" maxLength={9} value={code} disabled={!!busy || expired} aria-invalid={!!errors.code} aria-describedby={errors.code ? 'auth-code-error' : 'auth-code-hint'} onChange={(event) => { const next = event.target.value.replace(/\D/g, '').slice(0, CODE_LENGTH); setCode(next); setErrors({}); if (next.length === CODE_LENGTH && next !== code) verify(undefined, next) }} />{errors.code && <p id="auth-code-error" className="eh-auth__field-error" role="alert">{t(errors.code)}</p>}<p id="auth-code-hint" className="eh-auth__hint">{expired ? t('Запросите новый код ниже.') : t(`Код действует ${Math.floor(expiresIn / 60)}:${String(expiresIn % 60).padStart(2, '0')}`)}</p></div>
               {expired && <div className="eh-auth__notice" role="alert"><Icon name="info" size={18} /><div><strong>{t('Время действия кода истекло')}</strong><p>{t('Это бывает. Получите новый код и продолжите с этого шага.')}</p></div></div>}
-              {!expired && <button className="eh-auth__primary" type="submit" disabled={!!busy}>{busy === 'verify' ? <><span className="eh-auth__spinner" />{t("Проверяем код")}</> : <>{t("Войти в кабинет")}<Icon name="arrow" /></>}</button>}
-              <div className={`eh-auth__resend ${expired ? 'eh-auth__resend--primary' : ''}`}><button type="button" onClick={resend} disabled={!!busy || resendIn > 0}>{busy === 'resend' ? t('Отправляем новый код…') : resendIn > 0 ? t(`Отправить повторно через ${resendIn} сек.`) : t('Отправить новый код')}{!resendIn && !busy && <Icon name="arrow" size={17} />}</button></div>
+              {!expired && <button className="eh-auth__primary" type="submit" disabled={!!busy}>{busy === 'verify' ? <><span className="eh-auth__spinner" />{t("Проверяем код")}</> : <>{t("Войти в кабинет")}</>}</button>}
+              <div className={`eh-auth__resend ${expired ? 'eh-auth__resend--primary' : ''}`}><button type="button" onClick={resend} disabled={!!busy || resendIn > 0}>{busy === 'resend' ? t('Отправляем новый код…') : resendIn > 0 ? t(`Отправить повторно через ${resendIn} сек.`) : t('Отправить новый код')}{!resendIn && !busy && }</button></div>
               <button className="eh-auth__text-button eh-auth__delivery" type="button" onClick={() => setNotice({ title: 'Не получается найти код?', text: channel === 'email' ? 'Проверьте папку «Спам» и адрес выше. Письмо может идти несколько минут. Можно отправить новый код или изменить контакт.' : 'Проверьте номер и приём SMS. Сообщение может идти несколько минут. Можно отправить новый код или изменить контакт.', tone: 'info' })}>{t("Код не приходит?")}</button>
             </form>}
 
-            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}<span aria-hidden="true">↗</span></button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.")}</p><a className="eh-auth__text-button" href="https://elevenhouse.ai/" target="_blank" rel="noreferrer">{t("Открыть ElevenHouse ")}<span aria-hidden="true">↗</span></a></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
+            {step === 'help' && <div className="eh-auth__help"><div><span>01</span><div><h3>{t("Есть другой контакт?")}</h3><p>{t("Войдите через почту или телефон, уже привязанные к вашему кабинету.")}</p><button className="eh-auth__text-button" type="button" onClick={() => { setChannel(channel === 'email' ? 'phone' : 'email'); switchMode('login') }}>{t("Выбрать другой способ ")}</button></div></div><div><span>02</span><div><h3>{t("Нет доступа к почте и телефону?")}</h3><p>{t("Восстановите доступ к почте у почтового провайдера или к номеру у оператора. Если это невозможно, обратитесь в поддержку через действующее приложение.")}</p><a className="eh-auth__text-button" href="https://elevenhouse.ai/" target="_blank" rel="noreferrer">{t("Открыть ElevenHouse ")}</a></div></div><p className="eh-auth__help-note"><Icon name="lock" size={16} />{t("Никому не сообщайте код подтверждения, даже если собеседник представляется поддержкой.")}</p></div>}
           </div>
           {step !== 'help' && <div className="eh-auth__card-bottom"><span>{step === 'code' ? t('Не удаётся войти?') : isRegister ? t('Уже есть своё пространство?') : t('Ещё нет кабинета?')}</span><button type="button" onClick={() => step === 'code' ? openHelp() : switchMode(isRegister ? 'login' : 'register')}>{step === 'code' ? t('Помощь') : isRegister ? t('Войти') : t('Создать')}</button></div>}
         </div>
@@ -302,7 +300,7 @@ export function AuthPage() {
       </section>
     </main>
 
-    <footer className="eh-auth__footer"><span>© {new Date().getFullYear()} ElevenHouse</span><span>{t("ВАША ПРАКТИКА. ВАШ МАСШТАБ.")}</span><button type="button" onClick={openHelp}>{t("Помощь со входом ")}<span aria-hidden="true">↗</span></button></footer>
+    <footer className="eh-auth__footer"><span>© {new Date().getFullYear()} ElevenHouse</span><span>{t("ВАША ПРАКТИКА. ВАШ МАСШТАБ.")}</span><button type="button" onClick={openHelp}>{t("Помощь со входом ")}</button></footer>
     <div className="eh-auth__live" role="status" aria-live="polite" aria-atomic="true">{t(status)}</div>
 
   </div>

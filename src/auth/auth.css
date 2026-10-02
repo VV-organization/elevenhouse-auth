@@ -71,7 +71,6 @@
 .eh-auth input:-webkit-autofill { -webkit-text-fill-color: #edf0f5; box-shadow: 0 0 0 100px #152035 inset; }
 .eh-auth__contact-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .eh-auth__contact-head > button { border: 0; background: transparent; padding: 0 0 8px; font-size: 10px; line-height: 1.6; color: #d9c99e; }
-.eh-auth__contact-head > button > span { margin-left: 3px; }
 .eh-auth__contact-input { position: relative; display: flex; align-items: center; }
 .eh-auth__contact-input > svg { position: absolute; right: 15px; color: #8d9cb4; pointer-events: none; }
 .eh-auth__contact-input input[type='email'] { padding-right: 43px; }
@@ -80,12 +79,9 @@
 .eh-auth__contact-input--phone[data-invalid='true'] { border-color: #dd969b; }
 .eh-auth__contact-input--phone input { border: 0; background: transparent; padding-inline: 12px; }
 .eh-auth__contact-input--phone input:focus { box-shadow: none; background: transparent; }
-.eh-auth__country { position: relative; flex-shrink: 0; padding: 0 12px 0 14px; border-right: 1px solid #91a6c23b; font-size: 12px; color: #d2dbea; }
-.eh-auth__country > span { display: flex; align-items: center; gap: 9px; min-height: 24px; }
-.eh-auth__country-code { white-space: nowrap; font-variant-numeric: tabular-nums; }
-.eh-auth__chevron { width: 6px; height: 6px; margin-top: -3px; border-right: 1px solid #99a8be; border-bottom: 1px solid #99a8be; transform: rotate(45deg); transition: transform .18s, border-color .18s; }
-.eh-auth__country:hover .eh-auth__chevron { border-color: #e2ca89; }
-.eh-auth__country:focus-within .eh-auth__chevron { margin-top: 3px; transform: rotate(225deg); }
+.eh-auth__country { position: relative; flex-shrink: 0; padding: 0 12px 0 14px; border-right: 1px solid #91a6c23b; font-size: 12px; color: #d2dbea; cursor: pointer; }
+.eh-auth__country:hover { color: #e2ca89; }
+.eh-auth__country-code { display: inline-flex; align-items: center; min-height: 24px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .eh-auth__country select { position: absolute; inset: -15px 0; width: 100%; opacity: 0; cursor: pointer; }
 .eh-auth__country:focus-within { outline: 2px solid var(--gold); outline-offset: 3px; }
 .eh-auth__hint { color: #94a2b7; font-size: 10px; line-height: 1.7; margin-top: 9px !important; }
@@ -94,7 +90,6 @@
 .eh-auth__primary:not(:disabled):hover { background: #ecdcb7; box-shadow: 0 6px 28px #dfc78a24; transform: translateY(-1px); }
 .eh-auth__primary:active { transform: translateY(0); }
 .eh-auth__primary:disabled { opacity: .65; }
-.eh-auth__primary svg { width: 18px; }
 .eh-auth__form-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; color: #94a1b5; font-size: 9px; }
 .eh-auth__card-bottom { border-top: 1px solid var(--line); margin-top: 28px; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 10px; color: #9caac0; }
 .eh-auth__card-bottom > button { font-size: 11px; color: #e3d1a6; border: 0; background: transparent; padding: 12px 3px; }
