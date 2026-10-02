@@ -23,7 +23,8 @@ export function AuthBackdrop() {
             <stop stopColor="#405b79" stopOpacity="0" />
             <stop offset=".28" stopColor="#8b9da8" stopOpacity=".14" />
             <stop offset=".47" stopColor="#ddc995" stopOpacity=".5" />
-            <stop offset=".64" stopColor="#b7a879" stopOpacity=".18" />
+            <stop offset=".64" stopColor="#b7a879" stopOpacity=".3" />
+            <stop offset=".84" stopColor="#869db7" stopOpacity=".38" />
             <stop offset="1" stopColor="#456582" stopOpacity="0" />
           </linearGradient>
           <radialGradient id="auth-halo">
