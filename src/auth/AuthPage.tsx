@@ -234,7 +234,7 @@ export function AuthPage() {
     <AuthBackdrop />
     <a className="eh-auth__skip" href="#auth-content">{t("Перейти к форме")}</a>
     <header className="eh-auth__header">
-      <a className="eh-auth__brand" href="https://elevenhouse.ai/" aria-label={t("ElevenHouse — на главную")}><img src={wordmark} width="1131" height="682" alt="ElevenHouse" /></a>
+      <div className="eh-auth__brand"><img src={wordmark} width="1131" height="682" alt="ElevenHouse" /></div>
       <div className="eh-auth__header-actions">
         <div className="eh-auth__languages" role="group" aria-label={t('Язык интерфейса')}>
           <button type="button" lang="ru" aria-label="Русский" aria-pressed={locale === 'ru'} onClick={() => setLocale('ru')}>RU</button>
