@@ -81,9 +81,11 @@
 .eh-auth__country:focus-within { outline: 2px solid var(--gold); outline-offset: 3px; }
 .eh-auth__hint { color: #94a2b7; font-size: 10px; line-height: 1.7; margin-top: 9px !important; }
 .eh-auth__field-error { color: #f0afb3; font-size: 11px; line-height: 1.6; margin-top: 7px !important; }
-.eh-auth__primary { width: 100%; min-height: 52px; padding: 14px 18px; display: flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid #dac58ee0; border-radius: 10px; background: linear-gradient(115deg, #e5d3a5, #cfb778); color: #141b27 !important; font: 600 12px/1.5 'Auth Manrope', sans-serif; text-align: center; box-shadow: 0 4px 18px #dfc78a10; transition: background .2s, box-shadow .2s, transform .2s; }
-.eh-auth__primary:not(:disabled):hover { background: #ecdcb7; box-shadow: 0 6px 28px #dfc78a24; transform: translateY(-1px); }
-.eh-auth__primary:active { transform: translateY(0); }
+.eh-auth__primary { width: 100%; min-height: 52px; padding: 14px 18px; display: flex; align-items: center; justify-content: center; gap: 16px; border: 1px solid #dac58ee0; border-radius: 10px; background-color: #cfb778; background-image: linear-gradient(115deg, #fff5d84d, #fff5d800); color: #141b27 !important; font: 600 12px/1.5 'Auth Manrope', sans-serif; text-align: center; box-shadow: 0 4px 18px #dfc78a10; transition: background-color .18s ease, box-shadow .18s ease; }
+@media (hover: hover) and (pointer: fine) {
+  .eh-auth__primary:not(:disabled):hover { background-color: #ddc68e; box-shadow: 0 4px 20px #dfc78a20; }
+}
+.eh-auth__primary:not(:disabled):active { background-color: #c5ac70; box-shadow: 0 2px 8px #dfc78a10; }
 .eh-auth__primary:disabled { opacity: .65; }
 .eh-auth__form-note { display: flex; align-items: center; justify-content: center; gap: 7px; margin-top: 14px; color: #94a1b5; font-size: 9px; }
 .eh-auth__card-bottom { border-top: 1px solid var(--line); margin-top: 28px; min-height: 65px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 10px; color: #9caac0; }
